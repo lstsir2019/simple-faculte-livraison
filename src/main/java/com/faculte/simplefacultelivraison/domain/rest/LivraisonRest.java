@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @CrossOrigin(origins = {"http://localhost:4200"})
-@RequestMapping({"/Livraison-api/livraisons"})
+@RequestMapping(value ={"/Livraison-api/livraisons"})
 public class LivraisonRest {
 
     @Autowired

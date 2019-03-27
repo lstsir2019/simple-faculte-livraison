@@ -9,6 +9,7 @@ package com.faculte.simplefacultelivraison.domain.model.service.impl;
 import com.faculte.simplefacultelivraison.domain.bean.LivraisonItem;
 import com.faculte.simplefacultelivraison.domain.model.dao.LivraisonItemDao;
 import com.faculte.simplefacultelivraison.domain.model.service.LivraisonItemService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +35,9 @@ public class LivraisonItemServiceImpl implements LivraisonItemService{
        
         livraisonItemDao.save(livraisonItem);
     }
-    
+
+    @Override
+    public List<LivraisonItem> findByLivraisonReference(String reference) {
+       return livraisonItemDao.findByLivraisonReference(reference);
+    }
 }

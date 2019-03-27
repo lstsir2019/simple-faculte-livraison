@@ -5,8 +5,8 @@
  */
 package com.faculte.simplefacultelivraison.domain.model.service;
 
-
 import com.faculte.simplefacultelivraison.domain.bean.Livraison;
+import com.faculte.simplefacultelivraison.domain.bean.LivraisonItem;
 import java.util.List;
 
 /**
@@ -14,7 +14,12 @@ import java.util.List;
  * @author LENOVO
  */
 public interface LivraisonService {
+
     public Livraison findByReference(String reference);
-    public int CreeLivraison(Livraison livraison);   
+
+    public int CreeLivraison(Livraison livraison);
+
     public List<Livraison> fidAll();
+
+   
 }

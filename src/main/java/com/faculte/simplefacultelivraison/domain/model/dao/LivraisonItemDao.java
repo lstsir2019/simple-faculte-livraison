@@ -6,7 +6,10 @@
 package com.faculte.simplefacultelivraison.domain.model.dao;
 
 
+import com.faculte.simplefacultelivraison.domain.bean.Livraison;
 import com.faculte.simplefacultelivraison.domain.bean.LivraisonItem;
+import java.util.List;
+import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -16,5 +19,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface LivraisonItemDao extends JpaRepository<LivraisonItem, Long>{
+    public List<LivraisonItem> findByLivraisonReference(String reference);
    
 }
