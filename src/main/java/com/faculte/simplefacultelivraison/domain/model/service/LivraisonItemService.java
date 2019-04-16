@@ -6,6 +6,7 @@
 package com.faculte.simplefacultelivraison.domain.model.service;
 
 import com.faculte.simplefacultelivraison.domain.bean.LivraisonItem;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -17,4 +18,8 @@ public interface LivraisonItemService {
     public void creeLivraisonItem(LivraisonItem livraisonItem);
 
     public List<LivraisonItem> findByLivraisonReference(String reference);
+    
+    public void deleteLivraisonItem(Long id);
+    
+    public BigDecimal qteBilan(String referenceLivraison,String refenceProduit);
 }

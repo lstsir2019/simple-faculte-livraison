@@ -15,9 +15,11 @@ import com.faculte.simplefacultelivraison.domain.bean.LivraisonItem;
 import com.faculte.simplefacultelivraison.domain.model.service.LivraisonItemService;
 import com.faculte.simplefacultelivraison.domain.rest.converter.LivraisonItemConverter;
 import com.faculte.simplefacultelivraison.domain.rest.vo.LivraisonItemVo;
+import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -36,7 +38,17 @@ public class LivraisonItemRest {
         LivraisonItemConverter converter=new LivraisonItemConverter();
         return  converter.toVo(livraisonItemService.findByLivraisonReference(reference));
     }
+   
+    @DeleteMapping("/delete/id/{id}")
+    public void deleteLivraisonItem(@PathVariable Long id) {
+        livraisonItemService.deleteLivraisonItem(id);
+    }
+    @GetMapping("/qte/livraison/{referenceLivraison}/produit/{refenceProduit}")
+    public BigDecimal qteBilan(@PathVariable String referenceLivraison,@PathVariable String refenceProduit) {
+        return livraisonItemService.qteBilan(referenceLivraison, refenceProduit);
+    }
 
+    
     public LivraisonItemService getLivraisonItemService() {
         return livraisonItemService;
     }

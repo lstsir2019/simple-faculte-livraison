@@ -54,7 +54,8 @@ public class LivraisonItemConverter implements AbstractConverter<LivraisonItem, 
             livraisonItem.setCodeMagasin(vo.getCodeMagasin());
             livraisonItem.setQte(NuberUtil.toBigDecimale(vo.getQte()));
             livraisonItem.setRefenceProduit(vo.getRefenceProduit());
-            livraisonItem.setReferenceExpressionCommande(vo.getReferenceExpressionCommande());
+            livraisonItem.setReferenceReception(vo.getReferenceReception());
+            livraisonItem.setStrategy(vo.getStrategy());
 
             return livraisonItem;
  
@@ -72,7 +73,8 @@ public class LivraisonItemConverter implements AbstractConverter<LivraisonItem, 
             vo.setCodeMagasin(item.getCodeMagasin());
             vo.setQte(NuberUtil.toBigString(item.getQte()));
             vo.setRefenceProduit(item.getRefenceProduit());
-            vo.setReferenceExpressionCommande(item.getReferenceExpressionCommande());
+            vo.setReferenceReception(item.getReferenceReception());
+            vo.setStrategy(item.getStrategy());
             return vo;
         }
     }

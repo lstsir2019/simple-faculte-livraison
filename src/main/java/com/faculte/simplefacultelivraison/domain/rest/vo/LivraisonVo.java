@@ -24,6 +24,8 @@ public class LivraisonVo implements Serializable {
     private String date;
     private String referenceCommande;
     private List<LivraisonItemVo> livraisonItemVos = new ArrayList<>();
+    private String dateMax;
+    private String dateMin;
 
     public String getReference() {
         return reference;
@@ -56,6 +58,23 @@ public class LivraisonVo implements Serializable {
     public void setReferenceEntite(String referenceEntite) {
         this.referenceEntite = referenceEntite;
     }
+
+    public String getDateMax() {
+        return dateMax;
+    }
+
+    public void setDateMax(String dateMax) {
+        this.dateMax = dateMax;
+    }
+
+    public String getDateMin() {
+        return dateMin;
+    }
+
+    public void setDateMin(String dateMin) {
+        this.dateMin = dateMin;
+    }
+    
     
 
     @JsonIgnore

@@ -25,19 +25,15 @@ public class LivraisonItem implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String refenceProduit;
-    private String referenceExpressionCommande;
     private BigDecimal qte;
     private String codeMagasin;
+    private String referenceReception;
+    private String strategy;
     @ManyToOne
     private Livraison livraison;
-
-    public String getReferenceExpressionCommande() {
-        return referenceExpressionCommande;
-    }
-
-    public void setReferenceExpressionCommande(String referenceExpressionCommande) {
-        this.referenceExpressionCommande = referenceExpressionCommande;
-    }
+  
+    
+   
 
     public Long getId() {
         return id;
@@ -79,6 +75,24 @@ public class LivraisonItem implements Serializable {
         this.livraison = livraison;
     }
 
+    public String getReferenceReception() {
+        return referenceReception;
+    }
+
+    public void setReferenceReception(String referenceReception) {
+        this.referenceReception = referenceReception;
+    }
+
+    public String getStrategy() {
+        return strategy;
+    }
+
+    public void setStrategy(String strategy) {
+        this.strategy = strategy;
+    }
+    
+    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -101,7 +115,11 @@ public class LivraisonItem implements Serializable {
 
     @Override
     public String toString() {
-        return "LivraisonItem{" + "id=" + id + ", refenceProduit=" + refenceProduit + ", referenceExpressionCommande=" + referenceExpressionCommande + ", qte=" + qte + ", codeMagasin=" + codeMagasin + ", livraison=" + livraison + '}';
+        return "LivraisonItem{" + "id=" + id + ", refenceProduit=" + refenceProduit + ", qte=" + qte + ", codeMagasin=" + codeMagasin + ", referenceReception=" + referenceReception + ", strategy=" + strategy + ", livraison=" + livraison + '}';
     }
 
+   
+
+    
+   
 }

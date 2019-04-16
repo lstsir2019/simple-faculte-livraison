@@ -9,6 +9,7 @@ package com.faculte.simplefacultelivraison.domain.model.service.impl;
 import com.faculte.simplefacultelivraison.domain.bean.LivraisonItem;
 import com.faculte.simplefacultelivraison.domain.model.dao.LivraisonItemDao;
 import com.faculte.simplefacultelivraison.domain.model.service.LivraisonItemService;
+import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,15 @@ public class LivraisonItemServiceImpl implements LivraisonItemService{
     @Override
     public List<LivraisonItem> findByLivraisonReference(String reference) {
        return livraisonItemDao.findByLivraisonReference(reference);
+    }
+
+    @Override
+    public void deleteLivraisonItem(Long id) {
+       livraisonItemDao.deleteById(id);
+    }
+
+    @Override
+    public BigDecimal qteBilan(String referenceLivraison, String refenceProduit) {
+    return livraisonItemDao.qteBilan(referenceLivraison, refenceProduit);
     }
 }

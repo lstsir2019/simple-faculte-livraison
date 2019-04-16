@@ -11,22 +11,22 @@ import java.io.Serializable;
  *
  * @author LENOVO
  */
-public class LivraisonItemVo implements Serializable{
-    
+public class LivraisonItemVo implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
     private String refenceProduit;
-    private String referenceExpressionCommande;
+    private String referenceReception;
+    private String strategy;
     private String qte;
     private String codeMagasin;
     private LivraisonVo livraisonVo;
 
-    public String getReferenceExpressionCommande() {
-        return referenceExpressionCommande;
+    public String getReferenceReception() {
+        return referenceReception;
     }
 
-    public void setReferenceExpressionCommande(String referenceExpressionCommande) {
-        this.referenceExpressionCommande = referenceExpressionCommande;
+    public void setReferenceReception(String referenceReception) {
+        this.referenceReception = referenceReception;
     }
 
     public String getQte() {
@@ -37,9 +37,6 @@ public class LivraisonItemVo implements Serializable{
         this.qte = qte;
     }
 
-    
-    
-
     public String getRefenceProduit() {
         return refenceProduit;
     }
@@ -47,8 +44,6 @@ public class LivraisonItemVo implements Serializable{
     public void setRefenceProduit(String refenceProduit) {
         this.refenceProduit = refenceProduit;
     }
-
-  
 
     public String getCodeMagasin() {
         return codeMagasin;
@@ -66,10 +61,17 @@ public class LivraisonItemVo implements Serializable{
         this.livraisonVo = livraisonVo;
     }
 
+    public String getStrategy() {
+        return strategy;
+    }
+
+    public void setStrategy(String strategy) {
+        this.strategy = strategy;
+    }
+
     @Override
     public String toString() {
-        return "LivraisonItemVo{" + "refenceProduit=" + refenceProduit + ", referenceExpressionCommande=" + referenceExpressionCommande + ", qte=" + qte + ", codeMagasin=" + codeMagasin + ", livraisonVo=" + livraisonVo + '}';
+        return "LivraisonItemVo{" + "refenceProduit=" + refenceProduit + ", referenceReception=" + referenceReception + ", qte=" + qte + ", codeMagasin=" + codeMagasin + ", livraisonVo=" + livraisonVo + '}';
     }
-    
-    
+
 }
