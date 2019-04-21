@@ -55,6 +55,7 @@ public class LivraisonItemConverter implements AbstractConverter<LivraisonItem, 
             livraisonItem.setQte(NuberUtil.toBigDecimale(vo.getQte()));
             livraisonItem.setRefenceProduit(vo.getRefenceProduit());
             livraisonItem.setReferenceReception(vo.getReferenceReception());
+            livraisonItem.setReferenceCommandeExpression(vo.getReferenceCommandeExpression());
             livraisonItem.setStrategy(vo.getStrategy());
 
             return livraisonItem;
@@ -75,6 +76,7 @@ public class LivraisonItemConverter implements AbstractConverter<LivraisonItem, 
             vo.setRefenceProduit(item.getRefenceProduit());
             vo.setReferenceReception(item.getReferenceReception());
             vo.setStrategy(item.getStrategy());
+            vo.setReferenceCommandeExpression(item.getReferenceCommandeExpression());
             return vo;
         }
     }

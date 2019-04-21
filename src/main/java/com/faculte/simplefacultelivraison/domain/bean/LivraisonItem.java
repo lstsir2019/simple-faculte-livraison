@@ -29,6 +29,7 @@ public class LivraisonItem implements Serializable {
     private String codeMagasin;
     private String referenceReception;
     private String strategy;
+    private String referenceCommandeExpression;
     @ManyToOne
     private Livraison livraison;
   
@@ -90,6 +91,15 @@ public class LivraisonItem implements Serializable {
     public void setStrategy(String strategy) {
         this.strategy = strategy;
     }
+
+    public String getReferenceCommandeExpression() {
+        return referenceCommandeExpression;
+    }
+
+    public void setReferenceCommandeExpression(String referenceCommandeExpression) {
+        this.referenceCommandeExpression = referenceCommandeExpression;
+    }
+    
     
     
 
@@ -115,8 +125,10 @@ public class LivraisonItem implements Serializable {
 
     @Override
     public String toString() {
-        return "LivraisonItem{" + "id=" + id + ", refenceProduit=" + refenceProduit + ", qte=" + qte + ", codeMagasin=" + codeMagasin + ", referenceReception=" + referenceReception + ", strategy=" + strategy + ", livraison=" + livraison + '}';
+        return "LivraisonItem{" + "id=" + id + ", refenceProduit=" + refenceProduit + ", qte=" + qte + ", codeMagasin=" + codeMagasin + ", referenceReception=" + referenceReception + ", strategy=" + strategy + ", referenceCommandeExpression=" + referenceCommandeExpression + ", livraison=" + livraison + '}';
     }
+
+   
 
    
 

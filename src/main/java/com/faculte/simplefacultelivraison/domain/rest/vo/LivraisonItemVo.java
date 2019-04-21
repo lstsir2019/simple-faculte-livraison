@@ -19,7 +19,9 @@ public class LivraisonItemVo implements Serializable {
     private String strategy;
     private String qte;
     private String codeMagasin;
+    private String referenceCommandeExpression;
     private LivraisonVo livraisonVo;
+    
 
     public String getReferenceReception() {
         return referenceReception;
@@ -69,9 +71,19 @@ public class LivraisonItemVo implements Serializable {
         this.strategy = strategy;
     }
 
-    @Override
-    public String toString() {
-        return "LivraisonItemVo{" + "refenceProduit=" + refenceProduit + ", referenceReception=" + referenceReception + ", qte=" + qte + ", codeMagasin=" + codeMagasin + ", livraisonVo=" + livraisonVo + '}';
+    public String getReferenceCommandeExpression() {
+        return referenceCommandeExpression;
     }
 
+    public void setReferenceCommandeExpression(String referenceCommandeExpression) {
+        this.referenceCommandeExpression = referenceCommandeExpression;
+    }
+
+    @Override
+    public String toString() {
+        return "LivraisonItemVo{" + "refenceProduit=" + refenceProduit + ", referenceReception=" + referenceReception + ", strategy=" + strategy + ", qte=" + qte + ", codeMagasin=" + codeMagasin + ", referenceCommandeExpression=" + referenceCommandeExpression + ", livraisonVo=" + livraisonVo + '}';
+    }
+    
+
+   
 }

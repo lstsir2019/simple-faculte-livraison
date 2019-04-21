@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  *
  * @author gouss
  */
-@RibbonClient(name = "microservice-stock")
+//@RibbonClient(name = "microservice-stock")
 @FeignClient(name = "microservice-stock")
 public interface StockProxy {
 

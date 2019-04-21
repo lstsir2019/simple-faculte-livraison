@@ -13,6 +13,7 @@ import com.faculte.simplefacultelivraison.domain.model.dao.LivraisonItemDao;
 import com.faculte.simplefacultelivraison.domain.model.dao.Searsh.LivraisonSearsh;
 import com.faculte.simplefacultelivraison.domain.model.service.LivraisonItemService;
 import com.faculte.simplefacultelivraison.domain.model.service.LivraisonService;
+import com.faculte.simplefacultelivraison.domain.rest.proxy.CommandeProxy;
 import com.faculte.simplefacultelivraison.domain.rest.proxy.ProduitProxy;
 import com.faculte.simplefacultelivraison.domain.rest.vo.exchange.ProduitVo;
 import com.faculte.simplefacultelivraison.domain.rest.vo.exchange.StockGlobal;
@@ -44,7 +45,9 @@ public class LivraisonServiceImpl implements LivraisonService {
     private LivraisonItemService livraisonItemService;
     @Autowired
     private StockProxy stockProxy;
-    
+    @Autowired
+    private CommandeProxy commandeProxy;
+
     @Autowired
     private LivraisonSearsh livraisonSearsh;
 
@@ -94,8 +97,9 @@ public class LivraisonServiceImpl implements LivraisonService {
                 livraisonItem.setLivraison(livraison);
                 livraisonItemService.creeLivraisonItem(livraisonItem);
                 StockGlobal global = stockGlobal(livraisonItem);
-             int i  = stockProxy.livraisonStockGlobal(global, livraisonItem.getStrategy());
-                System.out.println("ha di i "+i);
+                int i = stockProxy.livraisonStockGlobal(global, livraisonItem.getStrategy());
+                commandeProxy.incerementQteLivre(livraisonItem.getReferenceCommandeExpression(), livraisonItem.getQte().intValue());
+                System.out.println("ha di i " + i);
             }
             return 1;
         }
@@ -118,13 +122,13 @@ public class LivraisonServiceImpl implements LivraisonService {
                 livraisonItemService.creeLivraisonItem(livraisonItem);
                 StockVo stockVo = stockdetaiille(livraisonItem);
                 stockProxy.stockLivraison(stockVo);
+                commandeProxy.incerementQteLivre(livraisonItem.getReferenceCommandeExpression(),livraisonItem.getQte().intValue());
 
             }
             return 1;
         }
 
     }
-    
 
     private StockGlobal stockGlobal(LivraisonItem livraisonItem) {
         NuberUtil util = new NuberUtil();
@@ -145,7 +149,6 @@ public class LivraisonServiceImpl implements LivraisonService {
         stockVo.setReferenceProduit(livraisonItem.getRefenceProduit());
         return stockVo;
     }
-    
 
     public LivraisonSearsh getLivraisonSearsh() {
         return livraisonSearsh;
@@ -154,7 +157,6 @@ public class LivraisonServiceImpl implements LivraisonService {
     public void setLivraisonSearsh(LivraisonSearsh livraisonSearsh) {
         this.livraisonSearsh = livraisonSearsh;
     }
-    
 
     public StockProxy getStockProxy() {
         return stockProxy;
@@ -171,17 +173,25 @@ public class LivraisonServiceImpl implements LivraisonService {
 
     @Override
     public void deleteLivraison(String reference) {
-       livraisonDao.deleteByReference(reference);
+        livraisonDao.deleteByReference(reference);
     }
 
     @Override
     public List<Livraison> findLivraisonsByQuery(String referenceLivraison, String referenceCommande, Date dateMin, Date dateMax) {
-   return livraisonSearsh.findLivraisonByQuery(referenceLivraison, referenceCommande, dateMin, dateMax);
+        return livraisonSearsh.findLivraisonByQuery(referenceLivraison, referenceCommande, dateMin, dateMax);
     }
 
     @Override
-    public List<Livraison> fidAllPage(int page,int size) {
-         return (List<Livraison>) livraisonDao.findAll(new PageRequest(page, size));
+    public List<Livraison> fidAllPage(int page, int size) {
+        return (List<Livraison>) livraisonDao.findAll(new PageRequest(page, size));
+    }
+
+    public CommandeProxy getCommandeProxy() {
+        return commandeProxy;
+    }
+
+    public void setCommandeProxy(CommandeProxy commandeProxy) {
+        this.commandeProxy = commandeProxy;
     }
 
 }

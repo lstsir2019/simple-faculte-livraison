@@ -5,7 +5,6 @@
  */
 package com.faculte.simplefacultelivraison.domain.rest.converter;
 
-
 import com.faculte.simplefacultelivraison.commun.util.NuberUtil;
 import com.faculte.simplefacultelivraison.domain.bean.Livraison;
 import com.faculte.simplefacultelivraison.domain.rest.vo.LivraisonVo;
@@ -14,39 +13,35 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import util.DateUtil;
 
 /**
  *
  * @author LENOVO
  */
-public class LivraisonVoConverter implements AbstractConverter<Livraison, LivraisonVo>{
+public class LivraisonVoConverter implements AbstractConverter<Livraison, LivraisonVo> {
 
     @Override
     public Livraison toItem(LivraisonVo vo) {
-       if(vo==null){
-           return null;
-           }else{
-           Livraison livraison=new Livraison();
-           try {
-               livraison.setDate(NuberUtil.toDate(vo.getDate()));
-           } catch (ParseException ex) {
-               livraison.setDate(null);
-           }
-           livraison.setReference(vo.getReference());
-           livraison.setReferenceCommande(vo.getReferenceCommande());
-           livraison.setLivraisonItems(new LivraisonItemConverter().toItem(vo.getLivraisonItemVos()));
-           livraison.setReferenceEntite(vo.getReferenceEntite());
-           return livraison;
-       }
+        if (vo == null) {
+            return null;
+        } else {
+            Livraison livraison = new Livraison();
+            livraison.setDate(DateUtil.parse(vo.getDate()));
+            livraison.setReference(vo.getReference());
+            livraison.setReferenceCommande(vo.getReferenceCommande());
+            livraison.setLivraisonItems(new LivraisonItemConverter().toItem(vo.getLivraisonItemVos()));
+            livraison.setReferenceEntite(vo.getReferenceEntite());
+            return livraison;
+        }
     }
 
     @Override
     public LivraisonVo toVo(Livraison item) {
-        if(item==null){
+        if (item == null) {
             return null;
-        }
-        else{
-            LivraisonVo vo=new LivraisonVo();
+        } else {
+            LivraisonVo vo = new LivraisonVo();
             vo.setReference(item.getReference());
             vo.setReferenceCommande(item.getReferenceCommande());
             vo.setDate(NuberUtil.toDateString(item.getDate()));
@@ -55,17 +50,17 @@ public class LivraisonVoConverter implements AbstractConverter<Livraison, Livrai
             return vo;
         }
     }
-    public List<LivraisonVo> toVo(List<Livraison> livraisons){
-        if(livraisons==null || livraisons.isEmpty()){
+
+    public List<LivraisonVo> toVo(List<Livraison> livraisons) {
+        if (livraisons == null || livraisons.isEmpty()) {
             return null;
-        }else{
-            List<LivraisonVo> livraisonVos=new ArrayList<>();
+        } else {
+            List<LivraisonVo> livraisonVos = new ArrayList<>();
             for (Livraison livraison : livraisons) {
                 livraisonVos.add(toVo(livraison));
             }
             return livraisonVos;
         }
     }
-    
-   
+
 }
