@@ -6,6 +6,7 @@
 package com.faculte.simplefacultelivraison.domain.rest;
 
 
+import com.faculte.simplefacultelivraison.commun.util.DateUtil;
 import com.faculte.simplefacultelivraison.domain.bean.Livraison;
 import com.faculte.simplefacultelivraison.domain.model.service.LivraisonService;
 import com.faculte.simplefacultelivraison.domain.rest.converter.LivraisonVoConverter;
@@ -27,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import util.DateUtil;
+
 
 /**
  *
