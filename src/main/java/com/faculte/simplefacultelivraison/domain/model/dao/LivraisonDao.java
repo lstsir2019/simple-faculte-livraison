@@ -24,6 +24,7 @@ import org.springframework.stereotype.Repository;
 public interface LivraisonDao extends JpaRepository<Livraison, Long>,PagingAndSortingRepository<Livraison, Long>{
     public Livraison findByReference(String reference);
     
+ 
    
     
     @Transactional

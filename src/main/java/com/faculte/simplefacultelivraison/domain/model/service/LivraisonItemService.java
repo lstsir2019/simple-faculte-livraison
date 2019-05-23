@@ -22,4 +22,6 @@ public interface LivraisonItemService {
     public void deleteLivraisonItem(Long id);
     
     public BigDecimal qteBilan(String referenceLivraison,String refenceProduit);
+
+    public List<LivraisonItem> livraisonItems();
 }

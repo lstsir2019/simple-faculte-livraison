@@ -27,4 +27,6 @@ public interface CommandeProxy {
     public int incerementQteLivre(@PathVariable String referenceCommandeExpression,@PathVariable int qte);
 
   
+    @PutMapping("/faculte-commande/items/commandeExpression/{referenceCommandeExpression}/QteLivre/{qte}/decrement")
+    public int decerementQteLivre(@PathVariable String referenceCommandeExpression, @PathVariable int qte);
 }

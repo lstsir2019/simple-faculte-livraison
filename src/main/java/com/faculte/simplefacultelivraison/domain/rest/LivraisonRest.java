@@ -6,6 +6,7 @@
 package com.faculte.simplefacultelivraison.domain.rest;
 
 
+import com.faculte.simplefacultelivraison.commun.pdf.GeneratePdf;
 import com.faculte.simplefacultelivraison.commun.util.DateUtil;
 import com.faculte.simplefacultelivraison.domain.bean.Livraison;
 import com.faculte.simplefacultelivraison.domain.model.service.LivraisonService;
@@ -15,8 +16,13 @@ import com.faculte.simplefacultelivraison.domain.rest.proxy.ProduitProxy;
 import com.faculte.simplefacultelivraison.domain.rest.vo.LivraisonVo;
 import com.faculte.simplefacultelivraison.domain.rest.vo.exchange.CommandeSourceWithProduit;
 import com.faculte.simplefacultelivraison.domain.rest.vo.exchange.ProduitVo;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,6 +52,7 @@ public class LivraisonRest {
     @Autowired
     private CommandeProxy commandeProxy;
 
+    
     public Livraison findByReference(String reference) {
         return livraisonService.findByReference(reference);
     }
@@ -107,6 +114,23 @@ public class LivraisonRest {
     public int incerementQteLivre(@PathVariable String referenceCommandeExpression,@PathVariable int qte) {
         return commandeProxy.incerementQteLivre(referenceCommandeExpression, qte);
     }
+    
+     @GetMapping("/pdf/reference/{reference}")
+    public ResponseEntity<Object> report(@PathVariable String reference)throws JRException, IOException{
+        Map<String,Object> params=new HashMap<>();
+         
+        Livraison myLivraison = livraisonService.findByReference(reference);
+        
+        params.put("reference", myLivraison.getReference());
+        params.put("date",myLivraison.getDate());
+      
+        params.put("referenceCommande",myLivraison.getReferenceCommande());
+        params.put("referenceEntite", myLivraison.getReferenceEntite());
+        
+        return GeneratePdf.generate("test", params,myLivraison.getLivraisonItems(), "/rapport/rapport.jasper");
+    }
+    
+    
    
    
 

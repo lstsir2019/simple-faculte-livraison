@@ -173,9 +173,19 @@ public class LivraisonServiceImpl implements LivraisonService {
 
     @Override
     public void deleteLivraison(String reference) {
+        decrementQteLivre(reference);
         livraisonDao.deleteByReference(reference);
+        
+        
     }
 
+    private void decrementQteLivre(String reference){
+         Livraison livraison=  findByReference(reference);
+       for (LivraisonItem livraisonItem : livraison.getLivraisonItems()){
+           commandeProxy.decerementQteLivre(livraisonItem.getReferenceCommandeExpression(),livraisonItem.getQte().intValue());
+       }
+    }
+    
     @Override
     public List<Livraison> findLivraisonsByQuery(String referenceLivraison, String referenceCommande, Date dateMin, Date dateMax) {
         return livraisonSearsh.findLivraisonByQuery(referenceLivraison, referenceCommande, dateMin, dateMax);

@@ -51,4 +51,9 @@ public class LivraisonItemServiceImpl implements LivraisonItemService{
     public BigDecimal qteBilan(String referenceLivraison, String refenceProduit) {
     return livraisonItemDao.qteBilan(referenceLivraison, refenceProduit);
     }
+
+    @Override
+    public List<LivraisonItem> livraisonItems() {
+        return livraisonItemDao.findAll();
+    }
 }

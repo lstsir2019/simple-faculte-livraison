@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="058e518c-464e-4666-a1bc-b681372e3fe3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="reference" class="java.lang.String"/>
+	<parameter name="date" class="java.util.Date"/>
+	<parameter name="referenceCommande" class="java.lang.String"/>
+	<parameter name="referenceEntite" class="java.lang.String"/>
+	<field name="refenceProduit" class="java.lang.String"/>
+	<field name="codeMagasin" class="java.lang.String"/>
+	<field name="qte" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="116" splitType="Stretch">
+			<image>
+				<reportElement x="119" y="0" width="316" height="116" uuid="79dade05-a70f-4a07-aac4-42148cbf6504"/>
+				<imageExpression><![CDATA["C:\\Users\\gouss\\Desktop\\Dessin12.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="192" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="24" y="103" width="151" height="22" backcolor="#FFCC99" uuid="0729602b-3350-4d26-894d-29ed30507fc6"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reference Livraison:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="175" y="103" width="109" height="22" uuid="7330c70b-82c1-4cfb-8c60-e2665f282f01"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{reference}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="125" width="131" height="22" uuid="afb44486-6208-492c-8277-4a43f644cad5"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{referenceCommande}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="24" y="125" width="161" height="22" backcolor="#FFCC99" uuid="64d2cb2d-0544-4ff3-97e9-25595869a228"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Refeence Commande:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="318" y="125" width="125" height="22" backcolor="#FFCC99" uuid="ca78d3f1-3370-4161-8c65-aefd06ef0130"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reference Entity:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="443" y="125" width="106" height="22" uuid="3ecf4f68-e664-4727-be74-a066e5b797fa"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{referenceEntite}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="140" y="16" width="267" height="35" uuid="09d153ef-51fd-4dec-a038-540b818a45c2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ LIVRAISON RAPPORT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="424" y="103" width="100" height="22" uuid="dbc37daf-b69c-46ef-8a18-5a1d7fafd636"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="316" y="103" width="119" height="22" backcolor="#FFCC99" uuid="548b273b-3a69-473d-9da9-915f1221879e"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date Livraison:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="185" height="32" backcolor="#FFCC99" uuid="d70019bd-40c6-4f18-ab5a-de467ee7bb11"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[refenceProduit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="185" y="0" width="185" height="32" backcolor="#FFCC99" uuid="f806b071-bb9e-4566-9d8c-41fea7eaef45"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[codeMagasin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="370" y="0" width="185" height="32" backcolor="#FFCC99" uuid="3dfc6fdc-736b-4a11-99e7-a19a243a543c"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[qte]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="185" height="20" uuid="9e2fadc1-38ef-4a43-9385-bc994c84b046"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{refenceProduit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="185" height="20" uuid="768c50ee-55c9-48ab-946b-912d6c53e6b1"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{codeMagasin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="185" height="20" uuid="dc06a9e0-5742-4666-a095-ca442f830d87"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{qte}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement x="407" y="17" width="100" height="20" uuid="e384f630-0c1c-4f9b-b710-953942539e67"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Signature:]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="20" uuid="caebb853-55b9-4442-a4b7-3f0a40bd750f"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Faculté des Sciences et Techniques]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="555" height="45" uuid="26ec4654-a465-42ec-8584-25db3391beed"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ B.P 549, Av.Abdelkarim Elkhattabi, Guéliz Marrakech
+  Tél : (+212) 524 43 34 04  Fax: (+212) 524 43 31 70 ]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="22" splitType="Stretch"/>
+	</summary>
+</jasperReport>
