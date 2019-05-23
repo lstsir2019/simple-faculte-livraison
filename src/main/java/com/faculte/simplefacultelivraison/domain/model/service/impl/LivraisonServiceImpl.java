@@ -5,6 +5,7 @@
  */
 package com.faculte.simplefacultelivraison.domain.model.service.impl;
 
+import com.faculte.simplefacultelivraison.commun.util.DateUtil;
 import com.faculte.simplefacultelivraison.commun.util.NuberUtil;
 import com.faculte.simplefacultelivraison.domain.bean.Livraison;
 import com.faculte.simplefacultelivraison.domain.bean.LivraisonItem;
@@ -122,7 +123,7 @@ public class LivraisonServiceImpl implements LivraisonService {
                 livraisonItemService.creeLivraisonItem(livraisonItem);
                 StockVo stockVo = stockdetaiille(livraisonItem);
                 stockProxy.stockLivraison(stockVo);
-                commandeProxy.incerementQteLivre(livraisonItem.getReferenceCommandeExpression(),livraisonItem.getQte().intValue());
+                commandeProxy.incerementQteLivre(livraisonItem.getReferenceCommandeExpression(), livraisonItem.getQte().intValue());
 
             }
             return 1;
@@ -174,18 +175,41 @@ public class LivraisonServiceImpl implements LivraisonService {
     @Override
     public void deleteLivraison(String reference) {
         decrementQteLivre(reference);
+        creeStockAnnulation(reference);
         livraisonDao.deleteByReference(reference);
-        
-        
+
     }
 
-    private void decrementQteLivre(String reference){
-         Livraison livraison=  findByReference(reference);
-       for (LivraisonItem livraisonItem : livraison.getLivraisonItems()){
-           commandeProxy.decerementQteLivre(livraisonItem.getReferenceCommandeExpression(),livraisonItem.getQte().intValue());
-       }
+    private void decrementQteLivre(String reference) {
+        Livraison livraison = findByReference(reference);
+        for (LivraisonItem livraisonItem : livraison.getLivraisonItems()) {
+            commandeProxy.decerementQteLivre(livraisonItem.getReferenceCommandeExpression(), livraisonItem.getQte().intValue());
+        }
     }
-    
+
+    private void creeStockAnnulation(String reference) {
+        NuberUtil util = new NuberUtil();
+        
+        Livraison livraison = findByReference(reference);
+        for (LivraisonItem livraisonItem : livraison.getLivraisonItems()) {
+            StockVo stockVo = new StockVo();
+            stockVo.setQte(util.toBigString(livraisonItem.getQte()));
+            stockVo.setReferenceCommande(livraisonItem.getLivraison().getReferenceCommande());
+            stockVo.setMagasinVo(new MagasinVo(livraisonItem.getCodeMagasin()));
+            stockVo.setReferenceProduit(livraisonItem.getRefenceProduit());
+            stockVo.setDateReception(NuberUtil.toDateString(new Date()));
+            if(livraisonItem.getReferenceReception()==null || livraisonItem.getReferenceReception().equals("") ){
+                stockVo.setReferenceReception("AnnulationStockGlobal");
+            }else{
+                stockVo.setReferenceReception(livraisonItem.getReferenceReception());
+            }
+            stockVo.setReference("Annulation:"+livraisonItem.getId());
+            stockProxy.create(stockVo);
+            
+            System.out.println("haaaaaaaaaaaaa stock "+stockVo);
+        }
+    }
+
     @Override
     public List<Livraison> findLivraisonsByQuery(String referenceLivraison, String referenceCommande, Date dateMin, Date dateMax) {
         return livraisonSearsh.findLivraisonByQuery(referenceLivraison, referenceCommande, dateMin, dateMax);
