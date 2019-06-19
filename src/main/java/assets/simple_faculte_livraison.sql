@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 29 avr. 2019 à 11:08
+-- Généré le :  mer. 19 juin 2019 à 16:29
 -- Version du serveur :  10.1.38-MariaDB
 -- Version de PHP :  7.3.2
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -37,8 +38,8 @@ CREATE TABLE `hibernate_sequence` (
 --
 
 INSERT INTO `hibernate_sequence` (`next_val`) VALUES
-(53),
-(53);
+(95),
+(95);
 
 -- --------------------------------------------------------
 
@@ -59,6 +60,12 @@ CREATE TABLE `livraison` (
 --
 
 INSERT INTO `livraison` (`id`, `date`, `reference`, `reference_commande`, `reference_entite`) VALUES
+(92, '2019-06-13', 'com-03', 'com-02', 'dep-info'),
+(84, '2019-06-06', 'ref-30', 'com-02', 'dep-info'),
+(90, '2019-06-10', 'ref-22', 'com-01', 'dep-bio'),
+(57, '2019-05-10', 'ref-10', 'com-02', 'dep-info'),
+(86, '2019-06-10', 'ref-14', 'com-01', 'dep-bio'),
+(53, '2019-04-08', 'ref-8', 'com-02', 'dep-info'),
 (49, '2019-04-17', 'ref-6', 'com-02', 'dep-info'),
 (35, '2019-04-09', 'ref-1', 'com-02', 'dep-info'),
 (37, '2019-04-10', 'ref-2', 'com-02', 'dep-info'),
@@ -91,7 +98,15 @@ INSERT INTO `livraison_item` (`id`, `code_magasin`, `qte`, `refence_produit`, `r
 (36, 'mag-1', '1.00', 'pr-2', '12', '', 'fifo', 35),
 (38, 'mag-1', '1.00', 'pr-2', '12', '', 'fifo', 37),
 (40, 'mag-1', '1.00', 'pr-2', '12', 'rec-2019-3', '', 39),
-(48, 'mag-1', '1.00', 'pr-2', '12', '', 'fifo', 47);
+(48, 'mag-1', '1.00', 'pr-2', '12', '', 'fifo', 47),
+(54, 'mag-1', '1.00', 'pr-2', '12', '', 'fifo', 53),
+(58, 'mag-2', '1.00', 'pr-1', '12', '', 'fifo', 57),
+(59, 'mag-1', '1.00', 'pr-2', '13', '', 'lifo', 57),
+(85, 'mag-2', '2.00', 'pr-1', '12', '', 'fifo', 84),
+(87, 'mag-1', '1.00', 'pr-2', '1', 'rec-2019-2', '', 86),
+(91, 'mag-3', '4.00', 'pr-3', '2', 'rec-2019-2', '', 90),
+(93, 'mag-1', '6.00', 'pr-2', '13', '', 'fifo', 92),
+(94, 'mag-2', '2.00', 'pr-1', '12', '', 'fifo', 92);
 
 --
 -- Index pour les tables déchargées
@@ -109,6 +124,7 @@ ALTER TABLE `livraison`
 ALTER TABLE `livraison_item`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK5fcwkbwshrffwos4uroxsrj1j` (`livraison`);
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
