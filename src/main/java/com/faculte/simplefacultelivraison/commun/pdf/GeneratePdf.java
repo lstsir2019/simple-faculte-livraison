@@ -50,5 +50,25 @@ public class GeneratePdf {
         return responseEntity;
 
     }
+    public static ResponseEntity<Object> generateExel(String name,Map<String, Object> params,List data,String linkJasper) throws JRException, IOException {
+
+        File pdfFile = File.createTempFile(name+"", ".xls");
+        FileOutputStream pos = new FileOutputStream(pdfFile);
+        JasperReport report = (JasperReport) JRLoader.loadObject(getResourceAsStream(linkJasper));
+        JRDataSource dataSource = new JRBeanCollectionDataSource(data);
+        JasperReportsUtils.renderAsXls(report, params, dataSource, pos);
+        InputStreamResource resource = new InputStreamResource(new FileInputStream(pdfFile));
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", pdfFile.getName()));
+        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+        headers.add("Pragma", "no-cache");
+        headers.add("Expires", "0");
+        
+
+        ResponseEntity<Object> responseEntity = ResponseEntity.ok().headers(headers).contentLength(pdfFile.length()).contentType(MediaType.parseMediaType("application/xls")).body(resource);
+        
+        return responseEntity;
+
+    }
     
 }

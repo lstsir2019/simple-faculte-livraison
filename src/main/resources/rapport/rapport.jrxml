@@ -102,9 +102,9 @@
 				<textFieldExpression><![CDATA[$P{referenceEntite}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="140" y="16" width="267" height="35" uuid="09d153ef-51fd-4dec-a038-540b818a45c2"/>
+				<reportElement mode="Transparent" x="140" y="16" width="267" height="35" backcolor="#CCCCCC" uuid="09d153ef-51fd-4dec-a038-540b818a45c2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="24" isBold="true" isUnderline="true"/>
+					<font size="24" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[ LIVRAISON RAPPORT]]></text>
 			</staticText>
@@ -134,12 +134,18 @@
 				</textElement>
 				<text><![CDATA[Date Livraison:]]></text>
 			</staticText>
+			<rectangle>
+				<reportElement mode="Opaque" x="-22" y="16" width="162" height="35" isRemoveLineWhenBlank="true" forecolor="#F0F0F0" backcolor="#FF9900" uuid="13e2655f-85a7-4f16-a253-61ce7f6a0946"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Opaque" x="407" y="16" width="167" height="35" isRemoveLineWhenBlank="true" forecolor="#F0F0F0" backcolor="#FF9900" uuid="579f83c5-095d-4514-b59a-a2fa32767c3f"/>
+			</rectangle>
 		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="32" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Transparent" x="0" y="0" width="185" height="32" backcolor="#FFCC99" uuid="d70019bd-40c6-4f18-ab5a-de467ee7bb11"/>
+				<reportElement mode="Opaque" x="0" y="0" width="185" height="32" backcolor="#CCCCCC" uuid="d70019bd-40c6-4f18-ab5a-de467ee7bb11"/>
 				<box>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
@@ -153,7 +159,7 @@
 				<text><![CDATA[refenceProduit]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="185" y="0" width="185" height="32" backcolor="#FFCC99" uuid="f806b071-bb9e-4566-9d8c-41fea7eaef45"/>
+				<reportElement mode="Opaque" x="185" y="0" width="185" height="32" backcolor="#CCCCCC" uuid="f806b071-bb9e-4566-9d8c-41fea7eaef45"/>
 				<box>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
@@ -167,7 +173,7 @@
 				<text><![CDATA[codeMagasin]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="370" y="0" width="185" height="32" backcolor="#FFCC99" uuid="3dfc6fdc-736b-4a11-99e7-a19a243a543c"/>
+				<reportElement mode="Opaque" x="370" y="0" width="185" height="32" backcolor="#CCCCCC" uuid="3dfc6fdc-736b-4a11-99e7-a19a243a543c"/>
 				<box>
 					<pen lineWidth="1.0" lineStyle="Solid"/>
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
@@ -231,6 +237,12 @@
 				</textElement>
 				<text><![CDATA[Signature:]]></text>
 			</staticText>
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="83" width="574" height="6" isRemoveLineWhenBlank="true" forecolor="#F0F0F0" backcolor="#FF9900" uuid="0c37c6cf-48b0-441e-a941-eddfe084f516"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="-22" y="83" width="22" height="6" forecolor="#F0F0F0" backcolor="#666666" uuid="3b5d27bf-810b-4bb9-85e7-2680472f9f2b"/>
+			</rectangle>
 		</band>
 	</columnFooter>
 	<pageFooter>

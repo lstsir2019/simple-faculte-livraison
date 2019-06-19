@@ -129,6 +129,20 @@ public class LivraisonRest {
         
         return GeneratePdf.generate("test", params,myLivraison.getLivraisonItems(), "/rapport/rapport.jasper");
     }
+     @GetMapping("/exel/reference/{reference}")
+    public ResponseEntity<Object> reportexel(@PathVariable String reference)throws JRException, IOException{
+        Map<String,Object> params=new HashMap<>();
+         
+        Livraison myLivraison = livraisonService.findByReference(reference);
+        
+        params.put("reference", myLivraison.getReference());
+        params.put("date",myLivraison.getDate());
+      
+        params.put("referenceCommande",myLivraison.getReferenceCommande());
+        params.put("referenceEntite", myLivraison.getReferenceEntite());
+        
+        return GeneratePdf.generateExel("test", params,myLivraison.getLivraisonItems(), "/rapport/rapport.jasper");
+    }
     
     
    
