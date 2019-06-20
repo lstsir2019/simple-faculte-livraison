@@ -16,8 +16,8 @@
 	<title>
 		<band height="116" splitType="Stretch">
 			<image>
-				<reportElement x="119" y="0" width="316" height="116" uuid="79dade05-a70f-4a07-aac4-42148cbf6504"/>
-				<imageExpression><![CDATA["C:\\Users\\gouss\\Desktop\\Dessin12.png"]]></imageExpression>
+				<reportElement x="94" y="-16" width="349" height="132" uuid="f4f473d7-2c9d-49e4-9174-76f23b6fc291"/>
+				<imageExpression><![CDATA["C:\\simple-faculte\\livraison\\assets\\image\\fstg.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
@@ -106,7 +106,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="24" isBold="true" isUnderline="false"/>
 				</textElement>
-				<text><![CDATA[ LIVRAISON RAPPORT]]></text>
+				<text><![CDATA[ Livraison Rapport]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="424" y="103" width="100" height="22" uuid="dbc37daf-b69c-46ef-8a18-5a1d7fafd636"/>
@@ -156,7 +156,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[refenceProduit]]></text>
+				<text><![CDATA[refence Produit]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="185" y="0" width="185" height="32" backcolor="#CCCCCC" uuid="f806b071-bb9e-4566-9d8c-41fea7eaef45"/>
@@ -170,7 +170,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[codeMagasin]]></text>
+				<text><![CDATA[code Magasin]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Opaque" x="370" y="0" width="185" height="32" backcolor="#CCCCCC" uuid="3dfc6fdc-736b-4a11-99e7-a19a243a543c"/>
@@ -184,7 +184,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[qte]]></text>
+				<text><![CDATA[Quantité]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
